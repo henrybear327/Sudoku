@@ -3,7 +3,6 @@
 
 int main()
 {
-    //hello
-    
+    int x;
 	return 0;
 }
