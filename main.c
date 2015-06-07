@@ -31,14 +31,14 @@ int check(board b,int n) {
     }
     for(int try_in=1; try_in<=9; try_in++) {
             conflict = 0;
-            for(int i=0; i<9; i++){
-                if(((row!=i) && (b.bd[row][i]==try_in)) || ((col!=i) && (b.bd[i][col]==try_in)))
+            for(int i=0; i<9 && !conflict; i++){
+                if(((col!=i) && (b.bd[row][i]==try_in)) || ((row!=i) && (b.bd[i][col]==try_in)))
                     conflict = 1;
             }
             if (!conflict) {
                 for (int i = 0; i < 3 && !conflict; i++)
                     for (int j = 0; j < 3 && !conflict; j++)
-                        if (b.bd[3*block_row+i][3*block_col+j]== try_in)
+                        if (b.bd[3*block_row+i][3*block_col+j] == try_in)
                             conflict = 1;
                 if (!conflict) {
                     b.bd[row][col] = try_in;
